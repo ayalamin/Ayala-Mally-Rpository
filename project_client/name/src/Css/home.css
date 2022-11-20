@@ -1,0 +1,92 @@
+h3 {
+    color: black;
+    display: inline;
+    margin-left: 50px;
+}
+
+.cleaner {
+    display: block;
+    padding: 30px;
+    width: 80%;
+    margin: 20px;
+    border: 4px solid wheat;
+    background-color: lightgrey;
+    height:115px
+}
+
+.boxCleaner {
+    display: inline;
+}
+
+.order {
+    text-align: center;
+    width: 100px;
+    margin-left: 50px;
+    border-radius: 45px;
+    color: turquoise;
+    background-color: lightslategrey;
+    border: 3px solid blanchedalmond;
+    float: right;
+}
+
+input {
+    text-emphasis-color: black;
+    color: black;
+    border: 1px solid grey;
+}
+
+.img {
+    border-radius: 30px;
+    float: left;
+    width: 47%;
+    margin-left: 30px;
+    height: 430;
+    border: 2px solid lightslategray;
+}
+
+.paragragh {
+    padding: 20px;
+    color: #595959;
+    border-radius: 30px;
+    width: 47%;
+    float: right;
+    margin-right: 30px;
+    height: auto;
+    height: 480px;
+}
+
+.imgBox {
+    text-align: center;
+    display: inline;
+}
+
+p {
+    font-size: 1em;
+    font-family: arial;
+}
+
+
+.App-header {
+    border-radius: 35px;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+.home {
+    width: 100%;
+    height: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ordering{
+
+    padding: 30px;
+    width: auto;
+    margin: 20px;
+    border: 4px solid wheat;
+    background-color: lightgrey;
+}

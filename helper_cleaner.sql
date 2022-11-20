@@ -1,0 +1,71 @@
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: helper
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cleaner`
+--
+
+DROP TABLE IF EXISTS `cleaner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cleaner` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `password` int NOT NULL,
+  `city` int NOT NULL,
+  `expertise` int NOT NULL,
+  `religion` int DEFAULT NULL,
+  `gender` int DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `bunkNum` int NOT NULL,
+  `branchNum` int NOT NULL,
+  `bunkAcount` int NOT NULL,
+  `sale` tinyint DEFAULT '0',
+  `isDelited` tinyint DEFAULT '0',
+  `newOrder` tinyint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk1_idx` (`city`),
+  KEY `fk2_idx` (`expertise`),
+  KEY `fk3_idx` (`religion`),
+  KEY `fk4_idx` (`gender`),
+  CONSTRAINT `fk1` FOREIGN KEY (`city`) REFERENCES `cities` (`id`),
+  CONSTRAINT `fk2` FOREIGN KEY (`expertise`) REFERENCES `expertise` (`id`),
+  CONSTRAINT `fk3` FOREIGN KEY (`religion`) REFERENCES `religion` (`id`),
+  CONSTRAINT `fk4` FOREIGN KEY (`gender`) REFERENCES `gender` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cleaner`
+--
+
+LOCK TABLES `cleaner` WRITE;
+/*!40000 ALTER TABLE `cleaner` DISABLE KEYS */;
+INSERT INTO `cleaner` VALUES (3,'eli',0,0,1,1,0,100,17,621,897238,1,0,NULL),(4,'lali',0,1,1,0,0,12312,1111,567,92827,1,0,NULL),(5,'ayala',0,0,0,0,0,36,7656453,876,987654,1,0,NULL),(7,'ruth',8,1,1,1,1,67,87,2983,9287722,0,1,NULL),(12,'brachi',1000,0,0,0,1,20,272,28287,29292,1,0,NULL),(14,'undefined',1234,1,1,1,1,20,272,28287,29292,1,0,NULL),(15,'ayelet',12212,0,0,0,1,20,272,28287,29292,1,0,NULL),(16,'undefined',1111,1,1,1,1,23,132,2345,34578,1,0,NULL),(17,'bv',1717,1,1,1,1,12,34,234,4565,1,0,NULL),(18,'gn',1333,1,1,1,1,52,4567,45678,34567,1,0,NULL),(19,'gn',1333,1,1,1,1,52,4567,45678,34567,0,0,NULL),(20,'gn',1333,1,1,1,1,52,4567,45678,34567,0,0,NULL),(21,'gn',1333,1,1,1,1,52,4567,45678,34567,0,0,NULL),(22,'gn',1333,1,1,1,1,52,4567,45678,34567,0,0,NULL),(23,'gn',1333,1,1,1,1,52,4567,45678,34567,0,0,NULL),(24,'gn',1333,1,1,1,1,52,4567,45678,34567,0,0,NULL),(25,'bil',11,1,1,1,1,23,89,909,67890,0,0,NULL),(26,'milki',11111,1,1,1,1,34,3456,2345,234567,0,0,NULL),(27,'nike',3232,1,1,1,1,56,67,78,890,0,0,NULL),(28,'noha',1414,1,1,0,0,98,987,765,54,1,0,NULL),(29,'nhj',789,1,1,1,1,23,34,456,78,0,0,NULL),(30,'fh',1144,1,1,1,1,78,89,90,789,1,0,NULL),(31,'undefined',1112,1,1,1,1,1234,345,56,34789098,1,0,NULL),(32,'han',0,0,0,0,0,765,65,54,43,0,0,NULL),(33,'ff',333,0,0,0,0,345,5,345,345,1,1,NULL),(34,'אא',44,1,0,1,1,44,44,4,44,0,0,NULL),(35,'efi',1111,2,0,1,1,22,22,22,22,0,0,NULL),(36,'efi',1111,2,1,1,1,3,3,44,4,0,0,NULL),(37,'efi',1111,2,0,1,1,3,33,3,34,0,0,NULL),(38,'hgg',67666,1,1,1,1,10,987,44,444,0,0,NULL),(39,'tal',1122,2,0,1,1,543,345,67,89,0,0,NULL),(40,'mally',1234,1,1,1,1,10,345,3456,5678,0,0,NULL);
+/*!40000 ALTER TABLE `cleaner` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-01 15:45:31

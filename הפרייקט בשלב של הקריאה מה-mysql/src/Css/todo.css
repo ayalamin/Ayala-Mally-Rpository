@@ -1,0 +1,24 @@
+.block {
+
+    padding: 1rem;
+    margin: 10rem;
+    border: 3px solid lightcoral;
+    min-width: 5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+    table {
+      font-size: 1rem;
+      width: 30rem;
+    }
+    .tr_task {
+        text-align: left;
+        border: lightcoral;
+      }
+        th {
+          padding: .25rem .25rem;
+        }
+        .td_task {
+          padding: .25rem .25rem;
+          color: #FFFFFF;
+        }

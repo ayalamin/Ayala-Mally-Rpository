@@ -1,0 +1,131 @@
+create database helper;
+use helper;
+
+CREATE TABLE `gender` (
+  `id` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+);
+
+CREATE TABLE `cities` (
+  `id` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+);
+
+CREATE TABLE `expertise` (
+  `id` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+);
+
+CREATE TABLE `response` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idOfCleaner` int NOT NULL,
+  `Text` varchar(45) DEFAULT NULL,
+  `rate` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk21_idx` (`idOfCleaner`),
+  CONSTRAINT `fk21` FOREIGN KEY (`idOfCleaner`) REFERENCES `cleaner` (`id`)
+);
+
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` int NOT NULL,
+  `adress` varchar(45) DEFAULT NULL,
+  `buildingNumber` int DEFAULT NULL,
+  `scors` int DEFAULT '0',
+  `alert` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `director` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `password` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `order` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `userId` int NOT NULL,
+  `date` date NOT NULL,
+  `endPrice` int NOT NULL,
+  `times` int NOT NULL,
+  `cleanerId` int NOT NULL,
+  `status` int NOT NULL,
+  `day` varchar(45) DEFAULT 'null',
+  `time` int DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `fk7_idx` (`userId`),
+  KEY `fk8_idx` (`cleanerId`),
+  KEY `fk15_idx` (`status`),
+  CONSTRAINT `fk7` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
+  CONSTRAINT `fk8` FOREIGN KEY (`cleanerId`) REFERENCES `cleaner` (`id`)
+);
+
+CREATE TABLE `cleaner` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `password` int NOT NULL,
+  `city` int NOT NULL,
+  `expertise` int NOT NULL,
+  `religion` int DEFAULT NULL,
+  `gender` int DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `bunkNum` int NOT NULL,
+  `branchNum` int NOT NULL,
+  `bunkAcount` int NOT NULL,
+  `sale` tinyint DEFAULT '0',
+  `isDelited` tinyint DEFAULT '0',
+  `newOrder` tinyint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk1_idx` (`city`),
+  KEY `fk2_idx` (`expertise`),
+  KEY `fk3_idx` (`religion`),
+  KEY `fk4_idx` (`gender`),
+  CONSTRAINT `fk1` FOREIGN KEY (`city`) REFERENCES `cities` (`id`),
+  CONSTRAINT `fk2` FOREIGN KEY (`expertise`) REFERENCES `expertise` (`id`),
+  CONSTRAINT `fk3` FOREIGN KEY (`religion`) REFERENCES `religion` (`id`),
+  CONSTRAINT `fk4` FOREIGN KEY (`gender`) REFERENCES `gender` (`id`)
+);
+
+CREATE TABLE `prefere` (
+  `userId` int NOT NULL,
+  `expertise` int NOT NULL,
+  `religion` int DEFAULT NULL,
+  `gender` int DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `find` int DEFAULT '0',
+  `city` int DEFAULT NULL,
+  KEY `fk10_idx` (`userId`),
+  KEY `nk1_idx` (`city`),
+  KEY `nk2_idx` (`expertise`),
+  KEY `nk3_idx` (`gender`),
+  KEY `nk4_idx` (`religion`),
+  CONSTRAINT `fk10` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
+  CONSTRAINT `nk1` FOREIGN KEY (`city`) REFERENCES `cities` (`id`),
+  CONSTRAINT `nk2` FOREIGN KEY (`expertise`) REFERENCES `expertise` (`id`),
+  CONSTRAINT `nk3` FOREIGN KEY (`gender`) REFERENCES `gender` (`id`),
+  CONSTRAINT `nk4` FOREIGN KEY (`religion`) REFERENCES `religion` (`id`)
+);
+
+CREATE TABLE `scedule` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cleanerId` int NOT NULL,
+  `time` int NOT NULL,
+  `sunday` varchar(45) NOT NULL,
+  `monday` varchar(45) NOT NULL,
+  `tuesday` varchar(45) NOT NULL,
+  `wednesday` varchar(45) NOT NULL,
+  `thursday` varchar(45) NOT NULL,
+  `friday` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk228_idx` (`cleanerId`),
+  CONSTRAINT `fk228` FOREIGN KEY (`cleanerId`) REFERENCES `cleaner` (`id`)
+);

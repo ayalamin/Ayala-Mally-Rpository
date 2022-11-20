@@ -1,0 +1,29 @@
+.bblock {
+    padding: 1rem;
+    margin: 3rem;
+    border: 3px solid lightcoral;
+    min-width: 5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+    .table {
+      font-size: 1rem;
+      width: 110rem;
+      height: 20px;
+    }
+    .tr_comment {
+        text-align: left;
+        border: lightcoral;
+      }
+        .td_comment {
+          padding: .25rem .25rem;
+          color: #FFFFFF;
+        }
+
+
+.close{
+    cursor: pointer;
+    font-size: 20px;
+    color: lightcoral;
+    font-weight: bolder;
+}

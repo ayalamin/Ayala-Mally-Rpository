@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: rgb(53, 53, 53);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+nav{ 
+  top: 50px;
+  right: 25%;
+  left: 25%;
+  /* position: absolute; */
+}
+.nav-link {
+  font-weight: 600;
+  --h: 1.2em;   /* the height */
+  --c: lightcoral; /* the color */
+  
+  line-height: var(--h);
+  color: #0000;
+  text-shadow: 
+    0 var(--_t,var(--h)) rgb(10, 10, 10),
+    0 0 var(--_c,rgb(255, 255, 255));
+  clip-path: inset(0 0 1px 0);
+  background: linear-gradient(var(--c) 0 0) 0 var(--_t,var(--h)) no-repeat;
+  transition: 0.4s ,clip-path 0.4s 0.4s;
+}
+.nav-link:hover {
+  --_t: 0;
+  --_c: #0000;
+  clip-path: inset(0 0 calc(-1*var(--h)) 0);
+  transition: 0.4s 0.4s, clip-path 0.4s;
+}
+
+
+

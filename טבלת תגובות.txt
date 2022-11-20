@@ -1,0 +1,12 @@
+CREATE TABLE `helper`.`response` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idOfCleaner` INT NOT NULL,
+  `Text` VARCHAR(45) NULL,
+  `rate` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk21_idx` (`idOfCleaner` ASC) VISIBLE,
+  CONSTRAINT `fk21`
+    FOREIGN KEY (`idOfCleaner`)
+    REFERENCES `helper`.`cleaner` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);

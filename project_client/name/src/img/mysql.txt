@@ -1,0 +1,182 @@
+-- create database helper;
+use helper;
+
+-- CREATE TABLE `gender` (
+--   `id` int NOT NULL,
+--   `name` varchar(45) NOT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE KEY `name_UNIQUE` (`name`)
+-- );
+
+
+-- CREATE TABLE `religion` (
+--   `id` int NOT NULL ,
+--   `name` varchar(45) NOT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE KEY `name_UNIQUE` (`name`)
+-- ) ;
+
+
+-- CREATE TABLE `expertise` (
+--   `id` int NOT NULL ,
+--   `name` varchar(45) NOT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE KEY `name_UNIQUE` (`name`)
+-- );
+
+-- CREATE TABLE `cities` (
+--   `id` int NOT NULL ,
+--   `name` varchar(45) NOT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE KEY `name_UNIQUE` (`name`)
+-- ) ;
+
+-- CREATE TABLE `status` (
+--   `id` int NOT NULL,
+--   `name` varchar(45) NOT NULL,
+--   PRIMARY KEY (`id`)
+-- );
+
+-- CREATE TABLE `director` (
+--   `name` varchar(45) NOT NULL,
+--   `password` varchar(45) NOT NULL
+-- ) ;
+
+-- CREATE TABLE `cleaner` (
+--   `id` int NOT NULL AUTO_INCREMENT,
+--   `name` varchar(45) NOT NULL,
+--   `password` int NOT NULL,
+--   `city` int NOT NULL,
+--   `expertise` int NOT NULL,
+--   `religion` int DEFAULT NULL,
+--   `gender` int DEFAULT NULL,
+--   `price` int DEFAULT NULL,
+--   `bunkNum` int NOT NULL,
+--   `branchNum` int NOT NULL,
+--   `bunkAcount` int NOT NULL,
+--   `sale` tinyint DEFAULT '0',
+--   PRIMARY KEY (`id`),
+--   KEY `fk1_idx` (`city`),
+--   KEY `fk2_idx` (`expertise`),
+--   KEY `fk3_idx` (`religion`),
+--   KEY `fk4_idx` (`gender`),
+--   CONSTRAINT `fk1` FOREIGN KEY (`city`) REFERENCES `cities` (`id`),
+--   CONSTRAINT `fk2` FOREIGN KEY (`expertise`) REFERENCES `expertise` (`id`),
+--   CONSTRAINT `fk3` FOREIGN KEY (`religion`) REFERENCES `religion` (`id`),
+--   CONSTRAINT `fk4` FOREIGN KEY (`gender`) REFERENCES `gender` (`id`)
+-- );
+
+-- CREATE TABLE `users` (
+--   `id` int NOT NULL AUTO_INCREMENT,
+--   `name` varchar(45) NOT NULL,
+--   `email` varchar(45) NOT NULL,
+--   `password` int NOT NULL,
+--   `adress` varchar(45) DEFAULT NULL,
+--   `buildingNumber` int DEFAULT NULL,
+--   `scors` int DEFAULT '0',
+--   `alert` varchar(45) DEFAULT NULL,
+--   PRIMARY KEY (`id`)
+-- ) ;
+
+-- CREATE TABLE `prefere` (
+--   `userId` int NOT NULL,
+--   `expertise` int NOT NULL,
+--   `religion` int DEFAULT NULL,
+--   `gender` int DEFAULT NULL,
+--   `price` int DEFAULT NULL,
+--   `find` int DEFAULT '0',
+--   `city` int DEFAULT NULL,
+--   KEY `fk10_idx` (`userId`),
+--   KEY `nk1_idx` (`city`),
+--   KEY `nk2_idx` (`expertise`),
+--   KEY `nk3_idx` (`gender`),
+--   KEY `nk4_idx` (`religion`),
+--   CONSTRAINT `fk10` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
+--   CONSTRAINT `nk1` FOREIGN KEY (`city`) REFERENCES `cities` (`id`),
+--   CONSTRAINT `nk2` FOREIGN KEY (`expertise`) REFERENCES `expertise` (`id`),
+--   CONSTRAINT `nk3` FOREIGN KEY (`gender`) REFERENCES `gender` (`id`),
+--   CONSTRAINT `nk4` FOREIGN KEY (`religion`) REFERENCES `religion` (`id`)
+-- );
+
+-- -- CREATE TABLE `alerts` (
+-- --   `userId` int NOT NULL,
+-- --   `alarms` varchar(45) NOT NULL,
+-- --   KEY `fk6_idx` (`userId`),
+-- --   CONSTRAINT `fk6` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+-- -- );
+
+-- -- CREATE TABLE `schedule` (
+-- --  `time` int NOT NULL,
+-- --  `sunday` int NOT NULL,
+-- --  `monday` int NOT NULL,
+-- --  `tuesday` int NOT NULL,
+-- --  `wednesday` int NOT NULL,
+-- --  `thursday` int NOT NULL,
+-- --  `friday` int NOT NULL,
+-- --     PRIMARY KEY (`time`)
+-- -- );
+
+-- -- CREATE TABLE `time` (
+-- --   `id` int NOT NULL,
+-- --   `timeDay` varchar(45) NOT NULL,
+-- --   KEY `fk15_idx` (`id`),
+-- --   CONSTRAINT `fk15` FOREIGN KEY (`id`) REFERENCES `schedule` (`time`)
+-- -- );
+
+-- CREATE TABLE `order` (
+--   `id` int NOT NULL AUTO_INCREMENT,
+--   `userId` int NOT NULL,
+--   `date` date NOT NULL,
+--   `endPrice` int NOT NULL,
+--   `times` int NOT NULL,
+--   `cleanerId` int NOT NULL,
+--   `status` int NOT NULL,
+--   PRIMARY KEY (`id`),
+--   KEY `fk7_idx` (`userId`),
+--   KEY `fk8_idx` (`cleanerId`),
+--   KEY `fk15_idx` (`status`),
+--   CONSTRAINT `fk7` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
+--   CONSTRAINT `fk8` FOREIGN KEY (`cleanerId`) REFERENCES `cleaner` (`id`)
+-- ) ;
+
+-- --  -- director
+-- insert into director values("bill","1234_bill_director");
+-- --  -- gender
+--  insert into gender values(0,"male"),
+--  (1,"female");
+
+-- -- -- expertise
+--  insert into expertise values(0,"dry"),
+--  (1,"wet");
+-- --  
+-- --  -- cities
+--  insert into cities values(0,"jerusalem"),
+--  (1,"chaifa"),
+--  (2,"bet-shemesh");
+
+-- --  -- religion
+--  insert into religion values(1,"arabic"),
+--  (0,"jewish");
+--  
+--  -- -- schedule
+-- --  insert into schedule values(2,10,10,10,10,10,10),
+-- --  (3,20,20,20,20,20,20),
+-- --  (4,30,30,30,30,30,30);
+
+-- -- -- time
+-- --  insert into time values (2,"morning"),
+-- --  (3,"afternoon"),
+-- --  (4,"evening");
+
+-- CREATE TABLE `response` (
+--   `id` int NOT NULL AUTO_INCREMENT,
+--   `idOfCleaner` int NOT NULL,
+--   `Text` varchar(45) DEFAULT NULL,
+--   `rate` int NOT NULL,
+--   PRIMARY KEY (`id`),
+--   KEY `fk21_idx` (`idOfCleaner`),
+--   CONSTRAINT `fk21` FOREIGN KEY (`idOfCleaner`) REFERENCES `cleaner` (`id`)
+-- )
+
+
+

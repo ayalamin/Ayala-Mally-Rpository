@@ -1,0 +1,30 @@
+.font_info{
+    font-family:cursive ;
+    color: lightcoral;
+}
+
+.block {
+    padding: 1rem;
+    margin: 1rem;
+    border: 3px solid lightcoral;
+    min-width: 5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+    table {
+      font-size: 1rem;
+      width: 10rem;
+    }
+      .tr {
+        text-align: left;
+        border: lightcoral;
+      }
+
+        .td {
+          padding: .25rem .25rem;
+          color: #FFFFFF;
+        }
+        .tr:hover {background-color: white;}
+       
+    
+  

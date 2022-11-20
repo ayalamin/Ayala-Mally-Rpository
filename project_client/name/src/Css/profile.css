@@ -1,0 +1,31 @@
+.cleanerProfile{
+    border-radius: 30px;
+    width:40%;
+    text-align:left;
+    margin:60px;
+    padding:40px;
+    float:left;
+}
+h1{
+    color: #5b5b5b;
+}
+.profilePicture{
+    display:inline;
+    margin-left: 50px;
+    color: turquoise;
+    border: 3px solid wheat;
+    float: left;
+}
+
+.picture{
+    padding:5%;
+    border-radius: 45%;
+}
+.buttonHomeUser{
+    margin-left: 50px;
+    border-radius: 45px;
+    color: turquoise;
+    background-color: lightslategrey;
+    border: 3px solid wheat;
+}
+

@@ -1,0 +1,22 @@
+img{
+    width: 400px;
+    height: 400px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.arow_btn_right{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 574px;
+}
+
+.arow_btn_left{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 574px;
+    left: 821px; 
+}
+
